@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #2d3436;
-    --secondary-color: #0984e3;
+    --primary-color: #0984e3;
+    --secondary-color: #2d3436;
     --text-color: #2d3436;
     --bg-color: #f5f6fa;
     --card-bg: #ffffff;
@@ -13,7 +13,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif; /* Simplified font stack */
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
@@ -22,13 +22,13 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 header {
     background-color: var(--primary-color);
     color: white;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     margin-bottom: 2rem;
 }
 
@@ -37,7 +37,7 @@ header {
 }
 
 .header-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Increased size for better readability */
     margin-bottom: 1rem;
 }
 
@@ -47,7 +47,7 @@ header {
 
 .social-links a {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.6rem; /* Slightly increased size for better readability */
     margin: 0 10px;
     transition: color 0.3s ease;
 }
@@ -60,7 +60,7 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .project-card {
@@ -117,7 +117,7 @@ header {
 
 @media (max-width: 768px) {
     .header-content h1 {
-        font-size: 2rem;
+        font-size: 2.5rem; /* Adjusted size for smaller screens */
     }
 
     .projects-grid {

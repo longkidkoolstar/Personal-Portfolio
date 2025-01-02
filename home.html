@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | My Portfolio</title>
+    <!-- Added Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Added Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Added AOS (Animate On Scroll) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="navbar-brand">My Portfolio</h1>
+            <ul class="navbar-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container" data-aos="fade-up">
+            <h2>Hi, I'm Macon Oghenedoro Akpobo</h2>
+            <p id="role-cycle">Full Stack Developer | Content Creator | Script Specialist</p>
+            <a href="portfolio.html" class="cta-button">View My Portfolio</a>
+        </div>
+    </header>
+
+    <section id="about-me" class="about">
+        <div class="container">
+            <div class="about-content" data-aos="fade-right">
+                <h2>About Me</h2>
+                <p>Welcome to my portfolio website! I am a passionate Full Stack Developer and Content Creator with a strong background in IT, programming, and creative content.</p>
+                <p>I've built several projects that showcase my skills and experience, including proficiency in various programming languages and tools:</p>
+                <div align="left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="javascript logo"  />
+                    <img width="12" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="30" alt="html5 logo"  />
+                    <img width="12" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="30" alt="css3 logo"  />
+                    <img width="12" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="30" alt="python logo"  />
+                    <img width="12" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" height="30" alt="csharp logo"  />
+                    <img width="12" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" height="30" alt="blender logo"  />
+                    <img width="12" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg" height="30" alt="lua logo"  />
+                    <img width="12" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" height="30" alt="unity logo"  />
+                    <img width="12" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="30" alt="vscode logo"  />
+                </div>
+                <p>I'm also skilled in using tools like:</p>
+                <ul>
+                    <li>Adobe Photoshop</li>
+                    <li>Illustrator</li>
+                    <li>Azurite</li>
+                    <li>GitHub Actions</li>
+                    <li>Github Pages</li>
+                    <li>Electron.js</li>
+                </ul>
+            </div>
+            <div class="about-image" data-aos="fade-left">
+                <img src="/api/placeholder/500/400" alt="About Me" style="width: 100%; height: auto; border-radius: 10px; position: relative; z-index: 1;">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+            <h2>Let's Connect</h2>
+            <p>If you would like to get in touch with me for a project or collaboration, feel free to reach out!</p>
+            <ul class="social-links">
+                <li><a href="https://github.com/longkidkoolstar" target="_blank"><i class="fab fa-github"></i><span>GitHub</span></a></li>
+                <li><a href="https://greasyfork.org/en/users/1000020-longkidkoolstar" target="_blank"><i class="fas fa-code"></i><span>GreasyFork</span></a></li>
+                <li><a href="https://youtube.com/@longkidkoolstar" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                <li><a href="https://twitter.com/kidkoolstar" target="_blank"><i class="fab fa-x-twitter"></i><span>Twitter</span></a></li>
+                <li><a href="https://tiktok.com/@longkidkoolstar" target="_blank"><i class="fab fa-tiktok"></i><span>TikTok</span></a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- Added AOS Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '10px 0';
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.padding = '15px 0';
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
