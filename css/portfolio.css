@@ -18,7 +18,89 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     transition: background-color 0.5s ease, color 0.5s ease, opacity 0.5s ease; /* Added transition for opacity */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --primary-color: #5f27cd; /* Adjust as needed */
+    --secondary-color: #f5f6fa; /* Adjust as needed */
+    --text-color: #f5f6fa;
+    --bg-color: #2d3436;
+    --card-bg: #212f3d;
+}
+
+body.dark-mode header {
+  background-color: #273c75;
+}
+
+body.dark-mode .social-links a {
+  color: var(--secondary-color)
+}
+
+body.dark-mode .project-card h3 {
+  color: var(--primary-color)
+}
+
+body.dark-mode .project-links a {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+
+body.dark-mode .tag {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+body.dark-mode .filter-button {
+    background-color: var(--card-bg);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+body.dark-mode .filter-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+body.dark-mode .filter-button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+body.dark-mode .back-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+body.dark-mode .back-button:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+
+}
+
+
+#dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other elements */
+    color: var(--text-color); /* Default color */
+    transition: color 0.3s ease;
+}
+
+body.dark-mode #dark-mode-toggle {
+    color: var(--secondary-color); /* Color in dark mode */
+}
+
+
+/* ... (rest of your CSS) ... */
 
 .container {
     max-width: 1200px;
@@ -83,7 +165,7 @@ header {
 }
 
 .project-card p {
-    color: #666;
+    color: var(--text-color); /* Use text color variable for consistency */
     margin-bottom: 1rem;
 }
 
@@ -93,13 +175,13 @@ header {
 }
 
 .project-links a {
-    color: var(--secondary-color);
-    text-decoration: none;
+    color: #007bff; /* A common link color */
+    text-decoration: underline; /* Added underline to clearly indicate link */
     font-weight: 500;
 }
 
 .project-links a:hover {
-    text-decoration: underline;
+    color: #0056b3; /* Darker shade on hover */
 }
 
 .tags {

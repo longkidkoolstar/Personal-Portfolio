@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/portfolio.css">
 </head>
 <body>
+    <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -26,7 +27,7 @@
     </header>
 
     <main class="container">
-        <a href="index.html" class="back-button">Back to Home</a>
+         <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Home</a>
         <div class="filter-buttons">
             <button class="filter-button active" data-filter="all">All</button>
             <button class="filter-button" data-filter="web">Web Development</button>
@@ -42,7 +43,24 @@
     <script src="js/portfolio.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            document.body.classList.add('fade', 'in'); // Add fade class on load
+            document.body.classList.add('fade', 'in');
+
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const body = document.body;
+
+            // Check localStorage on load
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                darkModeToggle.textContent = '☀️';
+            }
+
+
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+                darkModeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            });
         });
     </script>
 </body>
