@@ -1,4 +1,3 @@
-// home.js
 // Smooth scroll to sections
 document.querySelectorAll('.navbar-links a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

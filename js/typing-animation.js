@@ -3,7 +3,15 @@ gsap.registerPlugin(TextPlugin);
 const roles = [
     "Full Stack Developer",
     "Content Creator",
-    "Script Specialist"
+    "Script Specialist",
+    "IT Intern",
+    "Student Leader",
+    "Problem Solver",
+    "Web Developer",
+    "Custom Userscript Developer",
+    "Technical Support Specialist",
+    "Graphic Designer",
+    "Social Media Manager"
 ];
 
 let currentRole = 0;
