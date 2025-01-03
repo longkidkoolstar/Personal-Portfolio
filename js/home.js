@@ -1,3 +1,4 @@
+// home.js
 // Smooth scroll to sections
 document.querySelectorAll('.navbar-links a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -10,31 +11,20 @@ document.querySelectorAll('.navbar-links a').forEach(anchor => {
     });
 });
 
-// Portfolio Filter Logic
-const filterButtons = document.querySelectorAll('.filter-button');
-const projectsGrid = document.getElementById('projectsGrid');
+// Dark mode toggle
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const body = document.body;
 
-filterButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to the clicked button
-        this.classList.add('active');
-        
-        // Filter projects based on category
-        const filter = this.getAttribute('data-filter');
-        const allProjects = projectsGrid.children;
-        
-        for (let project of allProjects) {
-            if (filter === 'all' || project.classList.contains(filter)) {
-                project.style.display = 'block';
-            } else {
-                project.style.display = 'none';
-            }
-        }
-    });
+darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'true');
+    } else {
+        localStorage.setItem('darkMode', 'false');
+    }
 });
 
-
-// Call loadProjects when the page is ready
-window.onload = loadProjects;
+// Check if dark mode is enabled on page load
+if (localStorage.getItem('darkMode') === 'true') {
+    body.classList.add('dark-mode');
+}
