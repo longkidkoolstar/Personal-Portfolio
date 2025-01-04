@@ -1,14 +1,18 @@
-// Smooth scroll to sections
-document.querySelectorAll('.navbar-links a').forEach(anchor => {
+document.querySelectorAll('.navbar-links a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
-        document.getElementById(targetId).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) { // Check if the element exists before scrolling
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
 });
+
+// Rest of your JavaScript code (dark mode toggle)
 
 // Dark mode toggle
 const darkModeToggle = document.getElementById('dark-mode-toggle');
