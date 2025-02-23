@@ -28,19 +28,28 @@ if ('serviceWorker' in navigator) {
 // Rest of your JavaScript code (dark mode toggle)
 
 // Dark mode toggle
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add('fade', 'in');
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
 
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'true');
+    // Check localStorage on load
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+        body.classList.add('dark-mode');
+        darkModeToggle.textContent = '☀️';  // Sun icon for dark mode
     } else {
-        localStorage.setItem('darkMode', 'false');
+        darkModeToggle.textContent = '🌙';  // Moon icon for light mode
     }
-});
 
-// Check if dark mode is enabled on page load
-if (localStorage.getItem('darkMode') === 'true') {
-    body.classList.add('dark-mode');
-}
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        
+        if (body.classList.contains('dark-mode')) {
+            darkModeToggle.textContent = '☀️';  // Sun icon for switching to dark mode
+        } else {
+            darkModeToggle.textContent = '🌙';  // Moon icon for switching to light mode
+        }
+    });
+});
