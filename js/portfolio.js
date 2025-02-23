@@ -55,8 +55,19 @@ function createProjectCard(project) {
 }
 
 // Update the renderProjects function to be async
+// Update the renderProjects function with animations
 async function renderProjects(filter = 'all') {
     const projectsGrid = document.getElementById('projectsGrid');
+    const existingCards = projectsGrid.children;
+
+    // Fade out existing cards
+    Array.from(existingCards).forEach(card => {
+        card.classList.add('fade-out');
+    });
+
+    // Wait for fade out animation
+    await new Promise(resolve => setTimeout(resolve, 300));
+
     projectsGrid.innerHTML = '';
 
     const projects = await fetchProjects();
@@ -64,26 +75,50 @@ async function renderProjects(filter = 'all') {
         ? projects
         : projects.filter(project => project.category === filter);
 
+    // Create and append new cards (initially hidden)
     filteredProjects.forEach(project => {
-        projectsGrid.appendChild(createProjectCard(project));
+        const card = createProjectCard(project);
+        card.classList.add('fade-out');
+        projectsGrid.appendChild(card);
+    });
+
+    // Trigger reflow
+    projectsGrid.offsetHeight;
+
+    // Fade in new cards
+    Array.from(projectsGrid.children).forEach((card, index) => {
+        // Stagger the animations
+        setTimeout(() => {
+            card.classList.remove('fade-out');
+            card.classList.add('fade-in');
+        }, index * 100); // 100ms delay between each card
     });
 }
 
-// Update the initialization to handle async
+// Update the filter button click handler to be smoother
 document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
 
-    // Add filter functionality
     const filterButtons = document.querySelectorAll('.filter-button');
     filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.addEventListener('click', async () => {
+            // Prevent multiple clicks during animation
+            if (button.classList.contains('active')) return;
+
+            // Update active button with animation
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.transform = 'scale(1)';
+            });
             button.classList.add('active');
+            button.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 200);
 
             // Filter projects
             const filter = button.getAttribute('data-filter');
-            renderProjects(filter);
+            await renderProjects(filter);
         });
     });
 });
