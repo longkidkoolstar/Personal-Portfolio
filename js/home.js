@@ -27,7 +27,6 @@ if ('serviceWorker' in navigator) {
 
 // Rest of your JavaScript code (dark mode toggle)
 
-// Dark mode toggle
 document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.add('fade', 'in');
     const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -36,9 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check localStorage on load
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     if (isDarkMode) {
-        body.classList.add('dark-mode');
+        body.classList.add('dark-mode', 'animate-switch');
         darkModeToggle.textContent = '☀️';  // Sun icon for dark mode
     } else {
+        body.classList.add('animate-switch');  // Add animation class on load
         darkModeToggle.textContent = '🌙';  // Moon icon for light mode
     }
 

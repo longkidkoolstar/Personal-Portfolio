@@ -325,3 +325,16 @@ body.dark-mode .about p {
 body.dark-mode #dark-mode-toggle {
     color: #f8f9fa;
 }
+body.animate-switch {
+    transition: all 0.5s ease;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body:not(.dark-mode) {
+    background-color: #fff;
+    color: #333;
+}
