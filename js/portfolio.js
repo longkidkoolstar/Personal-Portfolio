@@ -54,8 +54,6 @@ function createProjectCard(project) {
     return card;
 }
 
-// Update the renderProjects function to be async
-// Update the renderProjects function with animations
 async function renderProjects(filter = 'all') {
     const projectsGrid = document.getElementById('projectsGrid');
     const existingCards = projectsGrid.children;
@@ -130,4 +128,3 @@ async function addProject(project) {
     localStorage.setItem('projects', JSON.stringify(projects)); // Update local storage
     renderProjects();
 }
-
