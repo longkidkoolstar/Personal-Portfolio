@@ -43,6 +43,8 @@ body {
     text-transform: uppercase;
     background: linear-gradient(45deg, #6c5ce7, #a8e6cf);
     -webkit-background-clip: text;
+    -moz-background-clip: text; /* Added for Firefox compatibility */
+    background-clip: text; /* Standard property for compatibility */
     -webkit-text-fill-color: transparent;
 }
 
