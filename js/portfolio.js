@@ -13,7 +13,7 @@ async function fetchProjects() {
     try {
         const response = await fetch('https://api.jsonstorage.net/v1/json/d206ce58-9543-48db-a5e4-997cfc745ef3/cf348fdf-4232-4b4e-8459-cf6cf101cde5');
         const data = await response.json();
-        
+
         // Cache the projects and update the last checked time
         localStorage.setItem('projects', JSON.stringify(data.projects));
         localStorage.setItem('lastChecked', now);
@@ -98,6 +98,27 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
 
     const filterButtons = document.querySelectorAll('.filter-button');
+    const filterIndicator = document.querySelector('.filter-indicator');
+
+    // Initialize the filter indicator position
+    function updateFilterIndicator(activeButton) {
+        if (!filterIndicator || !activeButton) return;
+
+        const buttonRect = activeButton.getBoundingClientRect();
+        const containerRect = activeButton.parentElement.getBoundingClientRect();
+
+        // Set the indicator position and width
+        filterIndicator.style.width = `${buttonRect.width}px`;
+        filterIndicator.style.left = `${buttonRect.left - containerRect.left}px`;
+        filterIndicator.style.opacity = '1';
+    }
+
+    // Initialize the indicator on the 'All' button
+    setTimeout(() => {
+        const activeButton = document.querySelector('.filter-button.active');
+        updateFilterIndicator(activeButton);
+    }, 100);
+
     filterButtons.forEach(button => {
         button.addEventListener('click', async () => {
             // Prevent multiple clicks during animation
@@ -106,18 +127,22 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update active button with animation
             filterButtons.forEach(btn => {
                 btn.classList.remove('active');
-                btn.style.transform = 'scale(1)';
             });
             button.classList.add('active');
-            button.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                button.style.transform = 'scale(1)';
-            }, 200);
+
+            // Animate the filter indicator
+            updateFilterIndicator(button);
 
             // Filter projects
             const filter = button.getAttribute('data-filter');
             await renderProjects(filter);
         });
+    });
+
+    // Update indicator position on window resize
+    window.addEventListener('resize', () => {
+        const activeButton = document.querySelector('.filter-button.active');
+        updateFilterIndicator(activeButton);
     });
 });
 
