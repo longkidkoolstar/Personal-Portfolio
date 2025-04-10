@@ -393,6 +393,7 @@ header::before {
     justify-content: center;
     gap: 1.5rem;
     margin: 2rem 0;
+    margin-top: 4rem; /* Added more top margin to accommodate the back button */
     flex-wrap: wrap;
     position: relative;
 }
@@ -553,10 +554,27 @@ header::before {
 
     .filter-buttons {
         gap: 0.8rem;
+        margin-top: 5rem; /* Increased top margin on mobile */
     }
 
     .filter-button {
         padding: 0.4rem 1rem;
         font-size: 0.9rem;
+    }
+
+    .back-button {
+        top: 15px;
+        left: 15px;
+        z-index: 20;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .back-button:hover {
+        transform: translateX(3px) scale(1.05);
+    }
+
+    .back-button:hover i {
+        transform: translateX(-3px);
     }
 }

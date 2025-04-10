@@ -139,10 +139,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Update indicator position on window resize
+    // Update indicator position on window resize and after a short delay
     window.addEventListener('resize', () => {
-        const activeButton = document.querySelector('.filter-button.active');
-        updateFilterIndicator(activeButton);
+        // Delay the update to ensure layout has settled
+        setTimeout(() => {
+            const activeButton = document.querySelector('.filter-button.active');
+            updateFilterIndicator(activeButton);
+        }, 300);
+    });
+
+    // Also update on page load and after a delay to ensure all styles are applied
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const activeButton = document.querySelector('.filter-button.active');
+            updateFilterIndicator(activeButton);
+        }, 500);
     });
 });
 
