@@ -40,7 +40,10 @@ function createProjectCard(project) {
         .join('');
 
     let imageHtml = '';
-    if (project.image) {
+    // Check for cover image first, then fall back to image if available
+    if (project.cover) {
+        imageHtml = `<img src="${project.cover}" alt="Project Cover" class="project-cover">`;
+    } else if (project.image) {
         imageHtml = `<img src="${project.image}" alt="Project Image" class="project-image">`;
     }
     card.innerHTML = `

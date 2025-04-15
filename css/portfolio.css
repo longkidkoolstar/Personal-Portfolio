@@ -529,14 +529,15 @@ header::before {
     position: relative;
 }
 
-.project-image {
+.project-image, .project-cover {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s var(--animation-timing);
 }
 
-.project-card:hover .project-image {
+.project-card:hover .project-image,
+.project-card:hover .project-cover {
     transform: scale(1.1);
 }
 
