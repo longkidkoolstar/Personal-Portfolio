@@ -46,8 +46,18 @@ function createProjectCard(project) {
     } else if (project.image) {
         imageHtml = `<img src="${project.image}" alt="Project Image" class="project-image">`;
     }
+
+    // Add icon if available
+    let iconHtml = '';
+    if (project.icon) {
+        iconHtml = `<div class="project-icon"><img src="${project.icon}" alt="Project Icon"></div>`;
+    }
+
     card.innerHTML = `
-        <div class="card-image">${imageHtml}</div>
+        <div class="card-image">
+            ${imageHtml}
+            ${iconHtml}
+        </div>
         <h3>${project.title}</h3>
         <div class="tags">${tagsHtml}</div>
         <p>${project.description}</p>

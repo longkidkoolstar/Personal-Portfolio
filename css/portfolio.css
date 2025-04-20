@@ -541,6 +541,45 @@ header::before {
     transform: scale(1.1);
 }
 
+/* Project icon styles */
+.project-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s var(--animation-timing);
+    overflow: hidden;
+}
+
+.project-icon img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    transition: transform 0.3s var(--animation-timing);
+}
+
+.project-card:hover .project-icon {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover .project-icon img {
+    transform: rotate(10deg);
+}
+
+body.dark-mode .project-icon {
+    background-color: rgba(33, 47, 61, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 /* Responsive improvements */
 @media (max-width: 768px) {
     .animated-title {
